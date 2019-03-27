@@ -9,6 +9,6 @@
     "update-stack": "export $(cat config.env | xargs) && ./bin/update.sh"
   },
   "keywords": [],
-  "author": "Alex Rudenko <oleksii.rudenko@60devs.com>",
-  "license": "MIT"
+  "author": "Malvino Juwono <mj@evari.insure>",
+  "license": "GPL"
 }

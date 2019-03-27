@@ -1,11 +1,11 @@
 Description: >
   AWS Lambda Nodejs Starter project.
   To add a new function define the function role and the function itself following
-  the template of FooFunction.
+  the template of hello-ts.
 
 Parameters:
 
-  FooFunctionVersion:
+  TestHelloFunctionVersion:
     Description: "Version of the lambda function required to update existing stack"
     Type: String
     Default: "latest"
@@ -15,7 +15,7 @@ Parameters:
     Type: "String"
 
 Resources:
-  FooFunctionRole:
+  TestHelloFunctionRole:
     Type: "AWS::IAM::Role"
     Properties:
       AssumeRolePolicyDocument:
@@ -41,19 +41,19 @@ Resources:
               - logs:PutLogEvents
               Resource: "*"
 
-  FooFunction:
+  TestHelloFunction:
     Type: "AWS::Lambda::Function"
     Properties:
       Code:
         S3Bucket: !Ref S3BucketName
-        S3Key: !Sub FooFunction-${FooFunctionVersion}.zip
-      Description: Lambda function that schedules updates
+        S3Key: !Sub hello-ts-${TestHelloFunctionVersion}.zip
+      Description: Dummy Lambda function
       Environment:
         Variables:
           NODE_ENV: production
-      FunctionName: FooFunction
+      FunctionName: TestHelloFunction
       Handler: "index.handler"
       MemorySize: 128
-      Role: !GetAtt FooFunctionRole.Arn
-      Runtime: "nodejs4.3"
+      Role: !GetAtt TestHelloFunctionRole.Arn
+      Runtime: "nodejs8.10"
       Timeout: 100

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./FooFunction/build.sh
+./hello-ts/build.sh
 
 # TODO: add other functions here
 
